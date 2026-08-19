@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Kimtre - Conocimiento que impulsa crecimiento</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#454843",
+                        "on-surface": "#e5e2e1",
+                        "surface-bright": "#3a3938",
+                        "error": "#ffb4ab",
+                        "secondary": "#c7c6c6",
+                        "on-primary": "#30312e",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1e1b1b",
+                        "background": "#141313",
+                        "inverse-primary": "#5e5f5c",
+                        "surface-tint": "#c7c6c3",
+                        "surface-dim": "#141313",
+                        "primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353434",
+                        "on-surface-variant": "#c5c7c1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error": "#690005",
+                        "surface-container": "#201f1f",
+                        "secondary-container": "#464747",
+                        "primary-container": "#e3e2df",
+                        "tertiary-container": "#e9e0e0",
+                        "on-primary-container": "#646562",
+                        "outline": "#8f918c",
+                        "on-tertiary-container": "#696363",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-tertiary-fixed-variant": "#4a4646",
+                        "on-primary-fixed": "#1b1c1a",
+                        "surface-container-highest": "#353434",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#ffffff",
+                        "on-tertiary": "#342f30",
+                        "primary-fixed": "#e3e2df",
+                        "on-secondary": "#303031",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary-fixed-variant": "#464747",
+                        "tertiary-fixed": "#e9e0e0",
+                        "surface-container-high": "#2a2a29",
+                        "on-secondary-container": "#b6b5b5",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#464744",
+                        "tertiary-fixed-dim": "#cdc5c5",
+                        "primary-fixed-dim": "#c7c6c3",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface": "#141313"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-desktop": "40px",
+                        "stack-lg": "32px",
+                        "base": "4px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "headline-lg": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "body-md": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "label-md": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "display-lg": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "body-sm": ["Helvetica Neue", "Arial", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(36, 47, 62, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(49, 61, 79, 0.5);
+        }
+        
+        .service-card {
+            background-color: #1B2533 !important;
+            border: 1px solid rgba(242, 241, 237, 0.15) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-6px);
+            background-color: #242F3E !important;
+            border-color: #38bdf8 !important;
+            box-shadow: 0 12px 40px -10px rgba(56, 189, 248, 0.25) !important;
+        }
+
+        .service-card .more-info {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .service-card:hover .more-info {
+            max-height: 180px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+
+        @property --gradient-angle {
+          syntax: "<angle>";
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        @property --gradient-angle-offset {
+          syntax: "<angle>";
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        @property --gradient-percent {
+          syntax: "<percentage>";
+          initial-value: 5%;
+          inherits: false;
+        }
+
+        @property --gradient-shine {
+          syntax: "<color>";
+          initial-value: white;
+          inherits: false;
+        }
+
+        .shiny-cta {
+          --shiny-cta-bg: #F2F1ED;
+          --shiny-cta-bg-subtle: #E5E4DF;
+          --shiny-cta-fg: #1B2533;
+          --shiny-cta-highlight: #1B2533;
+          --shiny-cta-highlight-subtle: #4A5668;
+          --animation: gradient-angle linear infinite;
+          --duration: 3s;
+          --shadow-size: 2px;
+          --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+          
+          isolation: isolate;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          outline-offset: 4px;
+          padding: 0.5rem 1.5rem;
+          font-family: "Inter", sans-serif;
+          font-size: 0.875rem;
+          line-height: 1.2;
+          font-weight: 600;
+          border: 1px solid transparent;
+          border-radius: 360px;
+          color: var(--shiny-cta-fg);
+          background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+            conic-gradient(
+              from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+              transparent,
+              var(--shiny-cta-highlight) var(--gradient-percent),
+              var(--gradient-shine) calc(var(--gradient-percent) * 2),
+              var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+              transparent calc(var(--gradient-percent) * 4)
+            ) border-box;
+          box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+          transition: var(--transition);
+          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .shiny-cta::before,
+        .shiny-cta::after,
+        .shiny-cta span::before {
+          content: "";
+          pointer-events: none;
+          position: absolute;
+          inset-inline-start: 50%;
+          inset-block-start: 50%;
+          translate: -50% -50%;
+          z-index: -1;
+        }
+
+        .shiny-cta:active {
+          translate: 0 1px;
+        }
+
+        /* Dots pattern */
+        .shiny-cta::before {
+          --size: calc(100% - var(--shadow-size) * 3);
+          --position: 2px;
+          --space: calc(var(--position) * 2);
+          width: var(--size);
+          height: var(--size);
+          background: radial-gradient(
+            circle at var(--position) var(--position),
+            #1B2533 calc(var(--position) / 4),
+            transparent 0
+          ) padding-box;
+          background-size: var(--space) var(--space);
+          background-repeat: space;
+          mask-image: conic-gradient(
+            from calc(var(--gradient-angle) + 45deg),
+            black,
+            transparent 10% 90%,
+            black
+          );
+          border-radius: inherit;
+          opacity: 0.15;
+          z-index: -1;
+        }
+
+        /* Inner shimmer */
+        .shiny-cta::after {
+          --animation: shimmer linear infinite;
+          width: 100%;
+          aspect-ratio: 1;
+          background: linear-gradient(
+            -50deg,
+            transparent,
+            var(--shiny-cta-highlight),
+            transparent
+          );
+          mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+          opacity: 0.15;
+        }
+
+        .shiny-cta span {
+          z-index: 1;
+          position: relative;
+          display: block;
+        }
+
+        .shiny-cta span::before {
+          --size: calc(100% + 1rem);
+          width: var(--size);
+          height: var(--size);
+          box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+          opacity: 0;
+          transition: opacity var(--transition);
+          animation: calc(var(--duration) * 1.5) breathe linear infinite;
+        }
+
+        /* Animate */
+        .shiny-cta,
+        .shiny-cta::before,
+        .shiny-cta::after {
+          animation: var(--animation) var(--duration),
+            var(--animation) calc(var(--duration) / 0.4) reverse paused;
+          animation-composition: add;
+        }
+
+        .shiny-cta:is(:hover, :focus-visible) {
+          --gradient-percent: 20%;
+          --gradient-angle-offset: 95deg;
+          --gradient-shine: var(--shiny-cta-highlight-subtle);
+        }
+
+        .shiny-cta:is(:hover, :focus-visible),
+        .shiny-cta:is(:hover, :focus-visible)::before,
+        .shiny-cta:is(:hover, :focus-visible)::after {
+          animation-play-state: running;
+        }
+
+        .shiny-cta:is(:hover, :focus-visible) span::before {
+          opacity: 0.15;
+        }
+
+        @keyframes gradient-angle {
+          to {
+            --gradient-angle: 360deg;
+          }
+        }
+
+        @keyframes shimmer {
+          to {
+            rotate: 360deg;
+          }
+        }
+
+        @keyframes breathe {
+          from, to {
+            scale: 1;
+          }
+          50% {
+            scale: 1.2;
+          }
+        }
+
+        .shiny-cta-accent {
+          --shiny-cta-bg: #ffffff;
+          --shiny-cta-bg-subtle: #F2F1ED;
+          --shiny-cta-fg: #1B2533;
+          --shiny-cta-highlight: #1B2533;
+          --shiny-cta-highlight-subtle: #ffffff;
+          --animation: gradient-angle linear infinite;
+          --duration: 3s;
+          --shadow-size: 2px;
+          --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+          
+          isolation: isolate;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          outline-offset: 4px;
+          padding: 0.75rem 2.25rem;
+          font-family: "Inter", sans-serif;
+          font-size: 1rem;
+          line-height: 1.2;
+          font-weight: 700;
+          border: 1px solid transparent;
+          border-radius: 360px;
+          color: var(--shiny-cta-fg);
+          background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+            conic-gradient(
+              from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+              transparent,
+              var(--shiny-cta-highlight) var(--gradient-percent),
+              var(--gradient-shine) calc(var(--gradient-percent) * 2),
+              var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+              transparent calc(var(--gradient-percent) * 4)
+            ) border-box;
+          box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle), 0 10px 30px -10px rgba(255, 255, 255, 0.1);
+          transition: var(--transition);
+          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .shiny-cta-accent::before,
+        .shiny-cta-accent::after,
+        .shiny-cta-accent span::before {
+          content: "";
+          pointer-events: none;
+          position: absolute;
+          inset-inline-start: 50%;
+          inset-block-start: 50%;
+          translate: -50% -50%;
+          z-index: -1;
+        }
+
+        .shiny-cta-accent:active {
+          translate: 0 1px;
+        }
+
+        /* Dots pattern */
+        .shiny-cta-accent::before {
+          --size: calc(100% - var(--shadow-size) * 3);
+          --position: 2px;
+          --space: calc(var(--position) * 2);
+          width: var(--size);
+          height: var(--size);
+          background: radial-gradient(
+            circle at var(--position) var(--position),
+            #1B2533 calc(var(--position) / 4),
+            transparent 0
+          ) padding-box;
+          background-size: var(--space) var(--space);
+          background-repeat: space;
+          mask-image: conic-gradient(
+            from calc(var(--gradient-angle) + 45deg),
+            black,
+            transparent 10% 90%,
+            black
+          );
+          border-radius: inherit;
+          opacity: 0.12;
+          z-index: -1;
+        }
+
+        /* Inner shimmer */
+        .shiny-cta-accent::after {
+          --animation: shimmer linear infinite;
+          width: 100%;
+          aspect-ratio: 1;
+          background: linear-gradient(
+            -50deg,
+            transparent,
+            var(--shiny-cta-highlight),
+            transparent
+          );
+          mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+          opacity: 0.15;
+        }
+
+        .shiny-cta-accent span {
+          z-index: 1;
+          position: relative;
+          display: block;
+        }
+
+        .shiny-cta-accent span::before {
+          --size: calc(100% + 1rem);
+          width: var(--size);
+          height: var(--size);
+          box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+          opacity: 0;
+          transition: opacity var(--transition);
+          animation: calc(var(--duration) * 1.5) breathe linear infinite;
+        }
+
+        .shiny-cta-accent:is(:hover, :focus-visible) {
+          --gradient-percent: 20%;
+          --gradient-angle-offset: 95deg;
+          --gradient-shine: var(--shiny-cta-highlight-subtle);
+          background: linear-gradient(#1B2533, #1B2533) padding-box,
+            conic-gradient(
+              from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+              transparent,
+              #ffffff var(--gradient-percent),
+              #ffffff calc(var(--gradient-percent) * 2),
+              #ffffff calc(var(--gradient-percent) * 3),
+              transparent calc(var(--gradient-percent) * 4)
+            ) border-box;
+          color: #ffffff;
+          box-shadow: inset 0 0 0 1px #1B2533, 0 15px 40px -10px rgba(56, 189, 248, 0.4);
+        }
+
+        .shiny-cta-accent:is(:hover, :focus-visible),
+        .shiny-cta-accent:is(:hover, :focus-visible)::before,
+        .shiny-cta-accent:is(:hover, :focus-visible)::after {
+          animation-play-state: running;
+        }
+
+        .shiny-cta-accent:is(:hover, :focus-visible) span::before {
+          opacity: 0.25;
+        }
+
+        /* Mobile Hamburger SVG Transition */
+        #hamburger-line-1 {
+            transform: translateY(-7px);
+            transform-origin: center;
+            transition: all 300ms cubic-bezier(0.5, 0.85, 0.25, 1.1);
+        }
+        #hamburger-line-2 {
+            transform-origin: center;
+            transition: all 300ms cubic-bezier(0.5, 0.85, 0.25, 1.8);
+        }
+        #hamburger-line-3 {
+            transform: translateY(7px);
+            transform-origin: center;
+            transition: all 300ms cubic-bezier(0.5, 0.85, 0.25, 1.1);
+        }
+
+        .menu-open #hamburger-line-1 {
+            transform: translateY(0) rotate(315deg);
+        }
+        .menu-open #hamburger-line-2 {
+            transform: rotate(45deg);
+        }
+        .menu-open #hamburger-line-3 {
+            transform: translateY(0) rotate(135deg);
+        }
+
+        /* Footer nav link spring-like hover states */
+        .footer-nav-link {
+            position: relative;
+            padding: 0.35rem 1rem;
+            color: rgba(242, 241, 237, 0.7);
+            transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+            font-weight: 500;
+            display: inline-block;
+        }
+        .footer-nav-link::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(242, 241, 237, 0.1);
+            border-radius: 8px;
+            transform: scale(0);
+            opacity: 0;
+            z-index: -1;
+            transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .footer-nav-link:hover::before {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .footer-nav-link:hover {
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        .footer-nav-link:active {
+            transform: scale(0.95);
+        }
+
+        /* Robotic/AI Logo Assembly Animation */
+        @keyframes petal-1-in {
+          0% { transform: translate(120px, -120px) scale(0) rotate(180deg); opacity: 0; }
+          100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        }
+        @keyframes petal-2-in {
+          0% { transform: translate(120px, 120px) scale(0) rotate(180deg); opacity: 0; }
+          100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        }
+        @keyframes petal-3-in {
+          0% { transform: translate(-120px, 120px) scale(0) rotate(180deg); opacity: 0; }
+          100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        }
+        @keyframes petal-4-in {
+          0% { transform: translate(-120px, -120px) scale(0) rotate(180deg); opacity: 0; }
+          100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .petal-1 {
+          transform-origin: 0px 0px;
+          animation: petal-1-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .petal-2 {
+          transform-origin: 0px 0px;
+          animation: petal-2-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .petal-3 {
+          transform-origin: 0px 0px;
+          animation: petal-3-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .petal-4 {
+          transform-origin: 0px 0px;
+          animation: petal-4-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes text-grow {
+          0% { letter-spacing: -12px; opacity: 0; filter: blur(6px); }
+          50% { opacity: 0.6; filter: blur(3px); }
+          100% { letter-spacing: 5px; opacity: 1; filter: blur(0px); }
+        }
+
+        @keyframes tagline-fade {
+          0% { opacity: 0; transform: translateY(8px); }
+          100% { opacity: 0.85; transform: translateY(0); }
+        }
+
+        .logo-text-kimtre {
+          transform-origin: 120px 0px;
+          animation: text-grow 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .logo-tagline {
+          transform-origin: 120px 15px;
+          animation: tagline-fade 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+          opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Dynamic Constellation Grid Canvas (Global Background) -->
+    <canvas id="hero-canvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-60 cursor-crosshair"></canvas>
+
+    <!-- TopNavBar -->
+    <nav class="border-b border-outline-variant/30 fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-4 h-20 transition-all duration-300 bg-background" id="navbar">
+        <div class="flex items-center gap-4">
+            <!-- SVG Isotype from KIMTRE_MASTER_LOGOS.svg -->
+            <div class="w-8 h-8 text-[#F2F1ED] bg-transparent flex items-center justify-center">
+                <svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <path d="M 5.41 -25.43 A 26 26 0 0 1 25.43 -5.41 L 86.07 -18.30 A 88 88 0 0 0 18.30 -86.07 Z" fill="currentColor"/>
+                    <path d="M 25.43 5.41 A 26 26 0 0 1 5.41 25.43 L 18.30 86.07 A 88 88 0 0 0 86.07 18.30 Z" fill="currentColor"/>
+                    <path d="M -5.41 25.43 A 26 26 0 0 1 -25.43 5.41 L -86.07 18.30 A 88 88 0 0 0 -18.30 86.07 Z" fill="currentColor"/>
+                    <path d="M -25.43 -5.41 A 26 26 0 0 1 -5.41 -25.43 L -18.30 -86.07 A 88 88 0 0 0 -86.07 -18.30 Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <span class="font-headline-lg text-primary font-bold tracking-wider">Kimtre</span>
+        </div>
+        <ul class="hidden md:flex gap-8 items-center">
+            <li><a class="font-label-md text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2" href="#servicios">Servicios</a></li>
+            <li><a class="font-label-md text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2" href="#seguridad">Seguridad</a></li>
+            <li><a class="font-label-md text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2" href="#quienes-somos">Quiénes Somos</a></li>
+            <li><a class="font-label-md text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2" href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="flex items-center gap-4">
+            <a href="#contacto" class="shiny-cta hidden md:inline-flex">
+                <span>Conversemos</span>
+            </a>
+            <!-- Mobile Menu Trigger Button -->
+            <button id="mobile-menu-btn" class="group w-8 h-8 md:hidden flex items-center justify-center text-[#F2F1ED] focus:outline-none z-50">
+                <svg class="pointer-events-none" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path id="hamburger-line-1" d="M4 12L20 12" class="origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)]"></path>
+                  <path id="hamburger-line-2" d="M4 12H20" class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)]"></path>
+                  <path id="hamburger-line-3" d="M4 12H20" class="origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)]"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu Dropdown Panel -->
+    <div id="mobile-menu" class="fixed inset-0 top-20 bg-background/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 px-6 py-12 md:hidden">
+        <ul class="flex flex-col gap-6 text-center text-xl font-medium">
+            <li><a class="text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2 block" href="#servicios">Servicios</a></li>
+            <li><a class="text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2 block" href="#seguridad">Seguridad</a></li>
+            <li><a class="text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2 block" href="#quienes-somos">Quiénes Somos</a></li>
+            <li><a class="text-[#F2F1ED]/80 hover:text-primary hover:font-bold transition-all py-2 block" href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="#contacto" class="shiny-cta mt-4 w-full max-w-[240px]" id="mobile-conversemos-btn">
+            <span>Conversemos</span>
+        </a>
+    </div>
+
+    <main class="flex-grow pt-20">
+        <!-- Hero Section -->
+        <section class="relative min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-6 md:px-12 text-center overflow-hidden pt-8 pb-20">
+            <!-- Subtle gradient background overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#1B2533]/20 via-[#141313]/60 to-background z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
+                <!-- SVG Horizontal Lockup from KIMTRE_MASTER_LOGOS.svg -->
+                <div class="w-full max-w-3xl md:max-w-[760px] mb-4 text-[#F2F1ED]">
+                    <svg viewBox="0 -35 290 70" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
+                        <g fill="currentColor">
+                            <g transform="translate(26, 0) scale(0.31)">
+                                <path class="petal-1" d="M 5.41 -25.43 A 26 26 0 0 1 25.43 -5.41 L 86.07 -18.30 A 88 88 0 0 0 18.30 -86.07 Z"/>
+                                <path class="petal-2" d="M 25.43 5.41 A 26 26 0 0 1 5.41 25.43 L 18.30 86.07 A 88 88 0 0 0 86.07 18.30 Z"/>
+                                <path class="petal-3" d="M -5.41 25.43 A 26 26 0 0 1 -25.43 5.41 L -86.07 18.30 A 88 88 0 0 0 -18.30 86.07 Z"/>
+                                <path class="petal-4" d="M -25.43 -5.41 A 26 26 0 0 1 -5.41 -25.43 L -18.30 -86.07 A 88 88 0 0 0 -86.07 -18.30 Z"/>
+                            </g>
+                            <text class="logo-text-kimtre" x="68" y="-2" font-size="24" font-weight="700" letter-spacing="5" font-family="'Hanken Grotesk', sans-serif">KIMTRE</text>
+                            <text class="logo-tagline" x="68" y="17" font-size="10.5" letter-spacing="0.5" font-family="'Inter', sans-serif" font-weight="400" opacity="0.85">Conocimiento que impulsa crecimiento</text>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="flex flex-col items-center gap-2">
+                    <h1 class="text-base md:text-lg font-semibold text-[#F2F1ED]/70 tracking-widest uppercase">Marketing & IA</h1>
+                    <p class="font-body-md text-on-surface-variant max-w-2xl text-sm md:text-base leading-relaxed opacity-75">
+                        Agentes de IA, desarrollo web estratégico y automatización avanzada de marketing para Pymes. Transformamos datos en resultados de negocio reales.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-4 justify-center mt-2">
+                    <a href="#servicios" onclick="event.preventDefault(); document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' })" class="shiny-cta">
+                        <span>Qué Hacemos</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce cursor-pointer z-10" onclick="document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' })">
+                <span class="text-[10px] uppercase tracking-widest text-[#F2F1ED]/40 font-semibold">Scroll</span>
+                <span class="material-symbols-outlined text-[#38bdf8] text-xl">keyboard_arrow_down</span>
+            </div>
+        </section>
+
+        <!-- Servicios (Bento Grid) -->
+        <section class="px-6 md:px-12 max-w-container-max mx-auto border-t border-outline-variant/30 pt-10 pb-20" id="servicios">
+            <div class="mb-16 text-center md:text-left">
+                <span class="text-xs uppercase tracking-widest text-[#F2F1ED]/60 font-semibold mb-2 block">Soluciones</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#F2F1ED] font-headline-lg">Nuestros Servicios</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="service-card rounded-xl p-8 flex flex-col relative overflow-hidden group cursor-pointer min-h-[300px]">
+                    <div class="absolute top-6 right-6 text-[#F2F1ED] opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 0;">query_stats</span>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-3 text-2xl font-bold font-headline-lg min-h-[64px] flex items-center pr-10">Consultoría de Marketing</h3>
+                        <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            Diseño de estrategias de marketing digital de extremo a extremo, enfocadas estrictamente en el ROI y el crecimiento comercial.
+                        </p>
+                        <p class="more-info font-body-sm text-secondary/80">
+                            Analizamos el funnel de ventas, optimizamos la inversión en pauta y definimos KPIs claros para impulsar la conversión directa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card rounded-xl p-8 flex flex-col relative overflow-hidden group cursor-pointer min-h-[300px]">
+                    <div class="absolute top-6 right-6 text-[#F2F1ED] opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-3 text-2xl font-bold font-headline-lg min-h-[64px] flex items-center pr-10">Automatización de Procesos</h3>
+                        <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            Ahorro de horas operativas conectando tus herramientas y plataformas mediante flujos de automatización inteligentes.
+                        </p>
+                        <p class="more-info font-body-sm text-secondary/80">
+                            Integración de CRM, automatización de email marketing y flujos de trabajo autónomos para evitar tareas manuales repetitivas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card rounded-xl p-8 flex flex-col relative overflow-hidden group cursor-pointer min-h-[300px]">
+                    <div class="absolute top-6 right-6 text-[#F2F1ED] opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 0;">smart_toy</span>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-3 text-2xl font-bold font-headline-lg min-h-[64px] flex items-center pr-10">Agentes Conversacionales de IA</h3>
+                        <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            Creación de asistentes inteligentes entrenados específicamente con el conocimiento corporativo de tu empresa.
+                        </p>
+                        <p class="more-info font-body-sm text-secondary/80">
+                            Atención al cliente 24/7 de leads en WhatsApp y Redes Sociales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card rounded-xl p-8 flex flex-col relative overflow-hidden group cursor-pointer min-h-[300px]">
+                    <div class="absolute top-6 right-6 text-[#F2F1ED] opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 0;">code</span>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-3 text-2xl font-bold font-headline-lg min-h-[64px] flex items-center pr-10">Desarrollo Web & UX</h3>
+                        <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            Páginas web y aplicaciones robustas de alta velocidad, optimizadas para la conversión y la experiencia móvil.
+                        </p>
+                        <p class="more-info font-body-sm text-secondary/80">
+                            Enfoque centrado en la usabilidad, tiempos mínimos de carga y arquitecturas SEO listas para competir en buscadores.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card rounded-xl p-8 flex flex-col relative overflow-hidden group cursor-pointer min-h-[300px]">
+                    <div class="absolute top-6 right-6 text-[#F2F1ED] opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 0;">campaign</span>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-3 text-2xl font-bold font-headline-lg min-h-[64px] flex items-center pr-10">Campañas Google - Meta - TikTok</h3>
+                        <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            Gestión integral de publicidad digital orientada a performance y adquisición de clientes calificados.
+                        </p>
+                        <p class="more-info font-body-sm text-secondary/80">
+                            Decisiones basada en datos, optimización continua de campañas, presupuestos y reportabilidad transparente en tiempo real.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card rounded-xl p-8 flex flex-col relative overflow-hidden group cursor-pointer min-h-[300px]">
+                    <div class="absolute top-6 right-6 text-[#F2F1ED] opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 0;">search</span>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-3 text-2xl font-bold font-headline-lg min-h-[64px] flex items-center pr-10">Estrategia de Contenidos & SEO</h3>
+                        <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            Posicionamiento orgánico a largo plazo para capturar tráfico de alta intención de compra y visibilidad sostenida.
+                        </p>
+                        <p class="more-info font-body-sm text-secondary/80">
+                            Auditorías técnicas mensuales, optimización de palabras clave y redacción estratégica orientada a la conversión orgánica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 md:px-12 py-24 bg-[#1B2533]/45 backdrop-blur-[6px] border-y border-[#313D4F]/30" id="seguridad">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-[#F2F1ED]/60 font-semibold mb-2 block">Infraestructura Corporativa</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 font-headline-lg">Tus datos están blindados</h2>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed mb-8">
+                            Garantizamos la seguridad y confidencialidad de la información de tu negocio en cada integración de IA y desarrollo de software.
+                        </p>
+                        <div class="flex flex-col gap-6">
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-[#242F3E] p-3 rounded border border-[#313D4F] text-[#F2F1ED] shrink-0">
+                                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-primary">Entorno Aislado</h4>
+                                    <p class="font-body-sm text-secondary">Despliegues en servidores dedicados o VPCs para garantizar el aislamiento absoluto de tu lógica y bases de datos.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-[#242F3E] p-3 rounded border border-[#313D4F] text-[#F2F1ED] shrink-0">
+                                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-primary">Privacidad IA</h4>
+                                    <p class="font-body-sm text-secondary">Tus datos no se utilizan para entrenar modelos públicos. Mantenemos la soberanía completa de la propiedad intelectual de tu negocio.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-[#242F3E] p-3 rounded border border-[#313D4F] text-[#F2F1ED] shrink-0">
+                                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">key</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-primary">Encriptación Total</h4>
+                                    <p class="font-body-sm text-secondary">Protección integral de datos en tránsito y en reposo usando protocolos avanzados de encriptación estándar de la industria.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Abstract representation of security/data -->
+                    <div class="relative h-[450px] rounded-xl overflow-hidden glass-card flex items-center justify-center border border-[#313D4F]">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image: url('./assets/foto_redes_seguridad.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiénes Somos -->
+        <section class="px-6 md:px-12 py-24 max-w-container-max mx-auto" id="quienes-somos">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-5 relative">
+                    <div class="w-full h-full min-h-[450px] bg-cover bg-center rounded-xl border border-[#313D4F] grayscale hover:grayscale-0 transition-all duration-700" style="background-image: url('./assets/foto_kimtre_persona.jpg');"></div>
+                </div>
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <span class="text-xs uppercase tracking-widest text-[#38bdf8] font-bold mb-2 block">Trayectoria</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-[#F2F1ED] mb-6 font-headline-lg">El Talento Detrás de Kimtre</h2>
+                    <div class="font-body-md text-[#F2F1ED]/90 space-y-6 text-base leading-relaxed">
+                        <p>Fundada por <strong>Sebastián Bernal</strong>, Kimtre nace de la necesidad de cerrar la brecha entre la tecnología corporativa de alto nivel y el ecosistema de las pequeñas y medianas empresas en Chile.</p>
+                        <p>Con más de 15 años de experiencia liderando proyectos digitales complejos, Sebastián ha diseñado y ejecutado estrategias de crecimiento digital, aportando una visión de negocio panorámica y orientada estrictamente a la facturación.</p>
+                        <p>Nuestra filosofía es clara: no implementamos tecnologías de manera aislada, sino que diseñamos soluciones estratégicas sólidas que se traducen en un retorno de inversión real y medible.</p>
+                    </div>
+                    <div class="mt-10">
+                        <span class="text-xs uppercase tracking-widest text-[#F2F1ED]/80 font-semibold block mb-4">Experiencia Corporativa Previa</span>
+                        <div class="flex flex-wrap gap-8 items-center opacity-95">
+                            <span class="font-bold text-lg tracking-widest text-[#F2F1ED]">COCA-COLA</span>
+                            <span class="font-bold text-lg tracking-widest text-[#F2F1ED]">INACAP</span>
+                            <span class="font-bold text-lg tracking-widest text-[#F2F1ED]">INMOBILIARIA PY</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="w-full py-16 bg-[#141313]/60 backdrop-blur-md border-t border-outline-variant/20 overflow-hidden" id="contacto">
+        <div class="container mx-auto px-4 flex flex-col items-center gap-10 mb-12">
+            <!-- Logo Horizontal Lockup (Isotype + Name + Tagline) -->
+            <div class="flex justify-center text-[#F2F1ED] w-full max-w-lg mb-4">
+                <svg viewBox="-50 -45 370 90" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
+                    <g fill="currentColor">
+                        <g transform="translate(0, 0) scale(0.45)">
+                            <path d="M 5.41 -25.43 A 26 26 0 0 1 25.43 -5.41 L 86.07 -18.30 A 88 88 0 0 0 18.30 -86.07 Z"/>
+                            <path d="M 25.43 5.41 A 26 26 0 0 1 5.41 25.43 L 18.30 86.07 A 88 88 0 0 0 86.07 18.30 Z"/>
+                            <path d="M -5.41 25.43 A 26 26 0 0 1 -25.43 5.41 L -86.07 18.30 A 88 88 0 0 0 -18.30 86.07 Z"/>
+                            <path d="M -25.43 -5.41 A 26 26 0 0 1 -5.41 -25.43 L -18.30 -86.07 A 88 88 0 0 0 -86.07 -18.30 Z"/>
+                        </g>
+                        <line x1="72" y1="-25" x2="72" y2="25" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+                        <text x="88" y="-8" font-size="22" font-weight="800" letter-spacing="3.5" font-family="'Helvetica Neue', Arial, sans-serif">KIMTRE</text>
+                        <text x="90" y="12" font-size="7" letter-spacing="1.8" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" opacity="0.65">CONOCIMIENTO QUE IMPULSA CRECIMIENTO</text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Navigation Links with frame pill hover effect -->
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-base font-medium relative z-10">
+                <a href="#servicios" class="footer-nav-link">Servicios</a>
+                <a href="#quienes-somos" class="footer-nav-link">Trayectoria</a>
+                <a href="#contacto" class="footer-nav-link">Conversemos</a>
+                <a href="#" onclick="openCookieSettings(event)" class="footer-nav-link">Panel de Control de Cookies</a>
+            </nav>
+
+            <!-- Social Media Icons (Social Cloud) -->
+            <div class="flex items-center justify-center gap-4">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/56958082687" target="_blank" class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-[#F2F1ED]/80 hover:text-[#38bdf8] hover:border-[#38bdf8] hover:bg-white/5 hover:scale-110 transition-all" title="WhatsApp">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.705 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-[#F2F1ED]/80 hover:text-[#38bdf8] hover:border-[#38bdf8] hover:bg-white/5 hover:scale-110 transition-all" title="Instagram">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-[#F2F1ED]/80 hover:text-[#38bdf8] hover:border-[#38bdf8] hover:bg-white/5 hover:scale-110 transition-all" title="Facebook">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                    </svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-[#F2F1ED]/80 hover:text-[#38bdf8] hover:border-[#38bdf8] hover:bg-white/5 hover:scale-110 transition-all" title="LinkedIn">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <!-- Email -->
+                <a href="mailto:sebastian@kimtre.cl" class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-[#F2F1ED]/80 hover:text-[#38bdf8] hover:border-[#38bdf8] hover:bg-white/5 hover:scale-110 transition-all" title="Email">
+                    <span class="material-symbols-outlined text-[20px]">mail</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Repeating Pattern Divider -->
+        <div class="w-full h-12 border-y border-[#F2F1ED]/10 opacity-10 bg-[repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)]" style="background-size: 10px 10px"></div>
+
+        <!-- Copyright -->
+        <div class="container mx-auto px-4 mt-8 text-center text-sm text-[#F2F1ED]/40">
+            <p>&copy; 2026 Kimtre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle nav background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-background/90', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.remove('bg-background');
+            } else {
+                navbar.classList.remove('bg-background/90', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.add('bg-background');
+            }
+        });
+
+        // WebGL Velaris simplex-noise background animation
+        const canvas = document.getElementById('hero-canvas');
+        const gl = canvas.getContext('webgl');
+
+        if (gl) {
+            const vertexShaderGLSL = `
+attribute vec2 position;
+varying vec2 vUv;
+void main() {
+  vUv = position * 0.5 + 0.5;
+  gl_Position = vec4(position, 0.0, 1.0);
+}
+            `;
+
+            const fragmentShaderGLSL = `
+precision highp float;
+varying vec2 vUv;
+
+uniform vec2  u_resolution;
+uniform float u_time;
+uniform float u_grain;
+uniform vec3  u_colors[4];
+uniform vec3  u_bg;
+uniform vec2  u_mouse;
+
+vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+
+float snoise(vec2 v){
+  const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+           -0.577350269189626, 0.024390243902439);
+  vec2 i  = floor(v + dot(v, C.yy) );
+  vec2 x0 = v -   i + dot(i, C.xx);
+  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod(i, 289.0);
+  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+  + i.x + vec3(0.0, i1.x, 1.0 ));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),
+    dot(x12.zw,x12.zw)), 0.0);
+  m = m*m ;
+  m = m*m ;
+  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+void main() {
+  vec2 uv = vUv;
+  float ratio = u_resolution.x / u_resolution.y;
+  vec2 p = uv - 0.5;
+  p.x *= ratio;
+
+  float t = u_time * 0.1;
+
+  float mouseDist = length(p - u_mouse);
+  float mouseForce = smoothstep(0.9, 0.0, mouseDist);
+  vec2 distortedP = p - u_mouse * mouseForce * 0.22;
+
+  float n1 = snoise(distortedP * 0.4 + vec2(t * 0.2, -t * 0.3));
+  float n2 = snoise(distortedP * 0.55 + vec2(-t * 0.15, t * 0.25) + n1 * 0.25);
+  float n3 = snoise(distortedP * 0.75 + vec2(t * 0.1, -t * 0.2) + n2 * 0.2);
+
+  vec3 col = u_bg;
+  
+  float dist = length(p) * 1.5;
+  float vignette = 1.0 - smoothstep(0.3, 1.2, dist);
+  
+  col = mix(col, u_colors[0], smoothstep(-0.2, 0.5, n1) * 0.85);
+  col = mix(col, u_colors[1], smoothstep(-0.1, 0.6, n2) * 0.7);
+  col = mix(col, u_colors[2], smoothstep(-0.3, 0.4, n3) * 0.6);
+  col = mix(col, u_colors[3], smoothstep(0.0, 0.7, n1 * n2) * 0.5);
+
+  float glow = smoothstep(0.8, 0.0, dist) * 0.3;
+  col += u_colors[1] * glow;
+
+  float mouseGlow = smoothstep(0.6, 0.0, mouseDist);
+  col += u_colors[1] * (mouseGlow * 0.5);
+
+  col = mix(col * 0.2, col, vignette);
+
+  float grain = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453 + u_time);
+  col += (grain - 0.5) * u_grain * 0.1;
+
+  gl_FragColor = vec4(col, 1.0);
+}
+            `;
+
+            const hexToRgb = (hex) => {
+                const h = hex.replace("#", "");
+                return [
+                    parseInt(h.slice(0, 2), 16) / 255,
+                    parseInt(h.slice(2, 4), 16) / 255,
+                    parseInt(h.slice(4, 6), 16) / 255,
+                ];
+            };
+
+            const compileShader = (type, src) => {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, src);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                }
+                return shader;
+            };
+
+            const program = gl.createProgram();
+            gl.attachShader(program, compileShader(gl.VERTEX_SHADER, vertexShaderGLSL));
+            gl.attachShader(program, compileShader(gl.FRAGMENT_SHADER, fragmentShaderGLSL));
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Program link error:', gl.getProgramInfoLog(program));
+            }
+            gl.useProgram(program);
+
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(
+                gl.ARRAY_BUFFER,
+                new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+                gl.STATIC_DRAW
+            );
+
+            const pos = gl.getAttribLocation(program, "position");
+            gl.enableVertexAttribArray(pos);
+            gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+
+            const locs = {
+                res: gl.getUniformLocation(program, "u_resolution"),
+                time: gl.getUniformLocation(program, "u_time"),
+                grain: gl.getUniformLocation(program, "u_grain"),
+                colors: gl.getUniformLocation(program, "u_colors"),
+                bg: gl.getUniformLocation(program, "u_bg"),
+                mouse: gl.getUniformLocation(program, "u_mouse"),
+            };
+
+            const bg = "#141313";
+            const colors = ["#1B2533", "#38bdf8", "#242F3E", "#0e0e0e"];
+            const speed = 2.2;
+            const grain = 0.15;
+
+            let mouse = { x: 0, y: 0 };
+            let targetMouse = { x: 0, y: 0 };
+
+            window.addEventListener('mousemove', (e) => {
+                const ratio = window.innerWidth / window.innerHeight;
+                targetMouse.x = (e.clientX / window.innerWidth - 0.5) * ratio;
+                targetMouse.y = -(e.clientY / window.innerHeight - 0.5);
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    const ratio = window.innerWidth / window.innerHeight;
+                    targetMouse.x = (e.touches[0].clientX / window.innerWidth - 0.5) * ratio;
+                    targetMouse.y = -(e.touches[0].clientY / window.innerHeight - 0.5);
+                }
+            });
+
+            const handleResize = () => {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+                gl.viewport(0, 0, canvas.width, canvas.height);
+            };
+
+            handleResize();
+            window.addEventListener('resize', handleResize);
+
+            const render = (t) => {
+                mouse.x += (targetMouse.x - mouse.x) * 0.08;
+                mouse.y += (targetMouse.y - mouse.y) * 0.08;
+
+                gl.uniform2f(locs.res, canvas.width, canvas.height);
+                gl.uniform1f(locs.time, t * 0.001 * speed);
+                gl.uniform1f(locs.grain, grain);
+                gl.uniform3f(locs.bg, ...hexToRgb(bg));
+                gl.uniform2f(locs.mouse, mouse.x, mouse.y);
+
+                const rgbColors = colors.slice(0, 4).flatMap(hexToRgb);
+                const flat = new Float32Array(rgbColors);
+                gl.uniform3fv(locs.colors, flat);
+
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+            };
+
+            requestAnimationFrame(render);
+        }
+    </script>
+
+    <!-- Modal (Light Window Form) -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300" id="modal-backdrop"></div>
+        
+        <!-- Modal Content Container -->
+        <div class="relative w-full max-w-lg bg-[#1B2533] border border-[#313D4F] rounded-2xl p-8 shadow-2xl z-10 transform scale-95 transition-all duration-300 opacity-0" id="modal-content">
+            <!-- Close Button -->
+            <button class="absolute top-4 right-4 text-[#F2F1ED]/60 hover:text-white transition-colors" id="close-modal-btn">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            
+            <!-- Header Title -->
+            <h3 class="text-2xl font-bold text-primary font-headline-lg mb-6 text-center leading-snug">
+                Déjanos tus datos y te contactaremos a la brevedad
+            </h3>
+            
+            <form action="/api/contacto" method="POST" class="space-y-5">
+                <!-- Config values for FormSubmit -->
+                <input type="hidden" name="_subject" value="Nuevo Lead - Web Kimtre">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" id="form-next-url">
+                
+                <!-- Nombre Completo -->
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">Nombre Completo</label>
+                    <input type="text" name="name" required placeholder="Tu Nombre" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                </div>
+                
+                <!-- WhatsApp -->
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">WhatsApp</label>
+                    <div class="flex relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#F2F1ED]/80 text-sm select-none pointer-events-none">
+                            +56
+                        </span>
+                        <input type="tel" name="phone" required placeholder="9 1234 5678" pattern="[0-9\s]*" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg pl-14 pr-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                    </div>
+                </div>
+                
+                <!-- Correo Electrónico -->
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">Correo Electrónico</label>
+                    <input type="email" name="email" required placeholder="nombre@correo.com" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                </div>
+                
+                <!-- Nombre Negocio - Empresa -->
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">Nombre Negocio - Empresa</label>
+                    <input type="text" name="company" required placeholder="Nombre de tu empresa" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="pt-2">
+                    <button type="submit" class="w-full shiny-cta">
+                        <span>Enviar</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenuBtn.classList.toggle('menu-open');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevents scrolling behind menu
+            } else {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu when links are clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('menu-open');
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Modal Event Handlers (Conversemos Light Window)
+        const contactModal = document.getElementById('contact-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+
+        function openModal(e) {
+            if (e) e.preventDefault();
+            
+            // Close mobile menu first if open
+            if (mobileMenuBtn.classList.contains('menu-open')) {
+                mobileMenuBtn.classList.remove('menu-open');
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+            
+            contactModal.classList.remove('hidden');
+            contactModal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Lock scrolling
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            document.body.style.overflow = ''; // Unlock scrolling
+            setTimeout(() => {
+                contactModal.classList.remove('flex');
+                contactModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Connect CTA buttons to open modal
+        document.querySelectorAll('a[href="#contacto"], #mobile-conversemos-btn').forEach(btn => {
+            btn.addEventListener('click', openModal);
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+
+        // Dynamically set FormSubmit redirect next URL
+        document.getElementById('form-next-url').value = window.location.href.split('?')[0] + '?status=success';
+
+        // Display Success Toast if redirected from FormSubmit
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            const successToast = document.createElement('div');
+            successToast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 z-[110] bg-[#1B2533] border border-[#38bdf8] px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 text-primary animate-bounce';
+            successToast.innerHTML = `
+                <span class="material-symbols-outlined text-[#38bdf8]">check_circle</span>
+                <span class="font-medium text-sm text-[#F2F1ED]">¡Mensaje enviado con éxito! Nos contactaremos a la brevedad.</span>
+            `;
+            document.body.appendChild(successToast);
+            setTimeout(() => successToast.remove(), 6000);
+            
+            // Cleanup query parameters from browser URL bar without reloading
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // Cookie Settings Global Handler
+        function openCookieSettings(e) {
+            if (e) e.preventDefault();
+            window.dispatchEvent(new CustomEvent('open-cookie-settings'));
+        }
+    </script>
+    <script src="cookies-control.js"></script>
+</body>
+</html>
