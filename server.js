@@ -33,6 +33,10 @@ app.get('/cookies-control.js', (req, res) => {
     res.sendFile(path.join(__dirname, 'cookies-control.js'));
 });
 
+app.get('/favicon.svg', (req, res) => {
+    res.sendFile(path.join(__dirname, 'favicon.svg'));
+});
+
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // API endpoint to handle contact form with server-side sanitization

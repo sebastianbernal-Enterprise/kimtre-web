@@ -27,6 +27,7 @@ COPY index.html ./
 COPY politica-cookies.html ./
 COPY Política_de_Privacidad_Kimtre.html ./
 COPY cookies-control.js ./
+COPY favicon.svg ./
 COPY assets ./assets
 
 # Expose the configured port
