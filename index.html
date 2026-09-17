@@ -1190,16 +1190,22 @@ void main() {
                 Déjanos tus datos y te contactaremos a la brevedad
             </h3>
             
-            <form action="/api/contacto" method="POST" class="space-y-5">
+            <form action="/api/contacto" method="POST" class="space-y-5" id="contact-form">
                 <!-- Config values for FormSubmit -->
                 <input type="hidden" name="_subject" value="Nuevo Lead - Web Kimtre">
-                <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" id="form-next-url">
+                <input type="hidden" name="_form_ts" id="form-timestamp">
+                
+                <!-- Anti-Bot Honeypot (Invisible for real users, filled only by automated bots) -->
+                <div class="hidden" aria-hidden="true" style="display:none !important; position: absolute; left: -9999px;">
+                    <label for="form-website-check">No llenar este campo</label>
+                    <input type="text" id="form-website-check" name="_website_check" tabindex="-1" autocomplete="off">
+                </div>
                 
                 <!-- Nombre Completo -->
                 <div class="flex flex-col gap-1.5">
                     <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">Nombre Completo</label>
-                    <input type="text" name="name" required placeholder="Tu Nombre" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                    <input type="text" name="name" required maxlength="100" placeholder="Tu Nombre" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
                 </div>
                 
                 <!-- WhatsApp -->
@@ -1209,20 +1215,20 @@ void main() {
                         <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#F2F1ED]/80 text-sm select-none pointer-events-none">
                             +56
                         </span>
-                        <input type="tel" name="phone" required placeholder="9 1234 5678" pattern="[0-9\s]*" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg pl-14 pr-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                        <input type="tel" name="phone" required placeholder="9 1234 5678" pattern="[0-9\s]*" maxlength="25" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg pl-14 pr-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
                     </div>
                 </div>
                 
                 <!-- Correo Electrónico -->
                 <div class="flex flex-col gap-1.5">
                     <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">Correo Electrónico</label>
-                    <input type="email" name="email" required placeholder="nombre@correo.com" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                    <input type="email" name="email" required maxlength="120" placeholder="nombre@correo.com" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
                 </div>
                 
                 <!-- Nombre Negocio - Empresa -->
                 <div class="flex flex-col gap-1.5">
                     <label class="text-xs font-semibold text-[#F2F1ED]/60 uppercase tracking-wider">Nombre Negocio - Empresa</label>
-                    <input type="text" name="company" required placeholder="Nombre de tu empresa" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
+                    <input type="text" name="company" required maxlength="120" placeholder="Nombre de tu empresa" class="w-full bg-[#141313] border border-[#313D4F] rounded-lg px-4 py-3 text-[#F2F1ED] focus:outline-none focus:border-primary transition-colors text-sm">
                 </div>
                 
                 <!-- Submit Button -->
@@ -1268,6 +1274,12 @@ void main() {
         const modalContent = document.getElementById('modal-content');
         const closeModalBtn = document.getElementById('close-modal-btn');
         const modalBackdrop = document.getElementById('modal-backdrop');
+        const formTimestampInput = document.getElementById('form-timestamp');
+
+        // Set initial form timestamp
+        if (formTimestampInput) {
+            formTimestampInput.value = Date.now().toString();
+        }
 
         function openModal(e) {
             if (e) e.preventDefault();
@@ -1280,6 +1292,11 @@ void main() {
                 document.body.style.overflow = '';
             }
             
+            // Refresh timestamp on modal open
+            if (formTimestampInput) {
+                formTimestampInput.value = Date.now().toString();
+            }
+
             contactModal.classList.remove('hidden');
             contactModal.classList.add('flex');
             document.body.style.overflow = 'hidden'; // Lock scrolling
